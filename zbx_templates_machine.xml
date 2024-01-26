@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>5.2</version>
+    <date>2024-01-26T12:34:21Z</date>
+    <groups>
+        <group>
+            <name>Templates</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>MachineID</template>
+            <name>MachineID</name>
+            <description>поддерживаемые команды:
+
+// создать уникальный ID (есть проверка на ранее созданный)
+create_maсhineID
+// создать уникальный ID (создаст новый ID, даже если уже существует)
+create_maсhineID_force
+// показать уникальный ID
+show_machineID
+// показать версию агента
+show_version</description>
+            <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>machineID</name>
+                </application>
+            </applications>
+            <items>
+                <item>
+                    <name>Уникальный machineID</name>
+                    <key>machineID[show_machineID]</key>
+                    <delay>1h</delay>
+                    <history>0</history>
+                    <trends>0</trends>
+                    <inventory_link>SITE_NOTES</inventory_link>
+                    <applications>
+                        <application>
+                            <name>machineID</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>Версия machineID</name>
+                    <key>machineID[show_version]</key>
+                    <delay>1h</delay>
+                    <history>0</history>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <applications>
+                        <application>
+                            <name>machineID</name>
+                        </application>
+                    </applications>
+                </item>
+            </items>
+        </template>
+    </templates>
+</zabbix_export>
